@@ -13,7 +13,7 @@
   "keywords": ["yeoman-generator"],
   "dependencies": {
     "yeoman-generator": "^0.20.2"
-  }
+  },
   "author": "Soham Kamani <sohamkamani@gmail.com> (http://sohamkamani.com)",
   "license": "ISC"
 }
