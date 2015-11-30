@@ -5,30 +5,55 @@ module.exports = generators.Base.extend({
   constructor: function () {
     // Calling the super constructor is important so our generator is correctly set up
     generators.Base.apply(this, arguments);
+  },
+  init : function(){
+    var cb = this.async();
+    var self = this;
+
     this.prompt([{
-			name: 'moduleName',
-			message: 'What do you want to name your module?',
-			default: this.appname.replace(/\s/g, '-'),
-		}, {
-			name: 'githubUsername',
-			message: 'What is your GitHub username?',
-			store: true,
-		}, {
-			name: 'website',
-			message: 'What is the URL of your website?',
-			store: true
-		}, {
-			name: 'cli',
-			message: 'Do you need a CLI?',
-			type: 'confirm',
-			default: false
-		}], console.log);
+      name: 'moduleName',
+      message: 'What do you want to name your module?',
+      default: this.appname.replace(/\s/g, '-'),
+    }, {
+      name: 'githubUsername',
+      message: 'What is your GitHub username?',
+      store: true,
+    }, {
+      name: 'website',
+      message: 'What is the URL of your website?',
+      store: true
+    },{
+      type: 'checkbox',
+      name: 'features',
+      message: 'What more would you like?',
+      choices: [{
+        name: 'lodash',
+        value: 'lodash',
+        checked: false
+      }, {
+        name: 'request',
+        value: 'request',
+        checked: true
+      }, {
+        name: 'async',
+        value: 'async',
+        checked: true
+      }]
+    }], function(props){
+      console.log('PROPS', props);
+      self.formProps = props;
+      cb();
+    });
   },
   writing: function () {
-    this.fs.copyTpl(
-      this.templatePath('index.js'),
-      this.destinationPath('public/index.js'), {
-        someJs: 'Templating with Yeoman'
+    var self = this;
+    self.fs.copyTpl(
+      self.templatePath('**/*'),
+      self.destinationPath('.'), {
+        someJs: 'Templating with Yeoman',
+        info : {
+          moduleName : self.formProps.moduleName
+        }
       }
     );
   },
