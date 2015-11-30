@@ -5,6 +5,7 @@ module.exports = generators.Base.extend({
   constructor: function () {
     // Calling the super constructor is important so our generator is correctly set up
     generators.Base.apply(this, arguments);
+    
 
     // Next, add your custom code
     this.option('coffee'); // This method adds support for a `--coffee` flag
