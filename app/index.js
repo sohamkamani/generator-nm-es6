@@ -53,7 +53,6 @@ module.exports = generators.Base.extend({
     self.fs.copyTpl(
       self.templatePath('**/*'),
       self.destinationPath('.'), {
-        someJs: 'Templating with Yeoman',
         info: {
           moduleName: self.formProps.moduleName,
           name: self.user.git.name(),
@@ -69,6 +68,7 @@ module.exports = generators.Base.extend({
     this.spawnCommandSync('git', ['init']);
   },
   installDeps: function () {
+    this.npmInstall(this.formProps.features, {save : 'true'});
     this.installDependencies({
       bower: false
     });

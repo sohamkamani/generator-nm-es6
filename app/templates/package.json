@@ -8,8 +8,7 @@
   },
   "author": {
     "name": "<%= info.name %>",
-    "email": "<%= info.email %>",
-    "url": "<%= humanizedWebsite %>"
+    "email": "<%= info.email %>"
   },
   "license": "ISC",
   "devDependencies": {
@@ -19,6 +18,9 @@
     "gulp-babel": "^6.1.0",
     "gulp-clean": "^0.3.1",
     "gulp-mocha": "^2.2.0",
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.1.0",
+    "gulp-jshint": "^2.0.0",
     "gulp-sourcemaps": "^1.6.0",
     "gutil": "^1.6.4",
     "mocha-lcov-reporter": "^1.0.0",

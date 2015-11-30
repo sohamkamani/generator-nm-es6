@@ -1,5 +1,1 @@
-import Matrix from './Matrix';
-
-module.exports = {
-  Matrix
-};
+module.exports = (word) => `Hello ${word}!`;

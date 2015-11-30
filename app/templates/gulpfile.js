@@ -4,6 +4,8 @@ var mocha = require('gulp-mocha');
 var babel = require('gulp-babel');
 var clean = require('gulp-clean');
 var sourcemaps = require('gulp-sourcemaps');
+var jshint = require('gulp-jshint');
+var stylish = require('jshint-stylish');
 var path = require('path');
 
 var dirs = {
@@ -24,6 +26,8 @@ var files = {
 //Test tasks
 gulp.task('source:build', function () {
   return gulp.src(files.source)
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish))
     .pipe(sourcemaps.init())
     .pipe(babel({
       presets: ['es2015']
@@ -37,6 +41,8 @@ gulp.task('source:build', function () {
 
 gulp.task('test:build', function () {
   return gulp.src(files.test)
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish))
     .pipe(sourcemaps.init())
     .pipe(babel({
       presets: ['es2015']
