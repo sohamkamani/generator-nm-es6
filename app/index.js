@@ -6,7 +6,7 @@ module.exports = generators.Base.extend({
     // Calling the super constructor is important so our generator is correctly set up
     generators.Base.apply(this, arguments);
   },
-  init : function(){
+  init: function () {
     var cb = this.async();
     var self = this;
 
@@ -22,7 +22,7 @@ module.exports = generators.Base.extend({
       name: 'website',
       message: 'What is the URL of your website?',
       store: true
-    },{
+    }, {
       type: 'checkbox',
       name: 'features',
       message: 'What more would you like?',
@@ -39,7 +39,7 @@ module.exports = generators.Base.extend({
         value: 'async',
         checked: true
       }]
-    }], function(props){
+    }], function (props) {
       console.log('PROPS', props);
       self.formProps = props;
       cb();
@@ -47,15 +47,23 @@ module.exports = generators.Base.extend({
   },
   writing: function () {
     var self = this;
+    var mv = function (from, to) {
+      self.fs.move(self.destinationPath(from), self.destinationPath(to));
+    };
     self.fs.copyTpl(
       self.templatePath('**/*'),
       self.destinationPath('.'), {
         someJs: 'Templating with Yeoman',
-        info : {
-          moduleName : self.formProps.moduleName
+        info: {
+          moduleName: self.formProps.moduleName,
+          name: self.user.git.name(),
+          email: self.user.git.email(),
         }
       }
     );
+    mv('travis.yml', '.travis.yml');
+    mv('gitignore', '.gitignore');
+    mv('jshintrc','.jshintrc');
   },
   gitInit: function () {
     this.spawnCommandSync('git', ['init']);

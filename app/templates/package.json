@@ -1,12 +1,16 @@
 {
   "name": "<%= info.moduleName %>",
-  "version": "0.1.1",
-  "description": "",
+  "version": "0.1.0",
+  "description": "My node module",
   "main": "dist/index.js",
   "scripts": {
     "test": "gulp test"
   },
-  "author": "Soham Kamani <sohamkamani@gmail.com> (http://sohamkamani.com)",
+  "author": {
+    "name": "<%= info.name %>",
+    "email": "<%= info.email %>",
+    "url": "<%= humanizedWebsite %>"
+  },
   "license": "ISC",
   "devDependencies": {
     "babel-preset-es2015": "^6.1.18",
