@@ -54,6 +54,7 @@ module.exports = generators.Base.extend({
       self.templatePath('**/*'),
       self.destinationPath('.'), {
         info: {
+          githubUsername: self.formProps.githubUsername,
           moduleName: self.formProps.moduleName,
           name: self.user.git.name(),
           email: self.user.git.email(),
