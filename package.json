@@ -4,19 +4,26 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.1.0",
-  "description": "",
+  "repository" : "sohamkamani/generator-nm-es6",
+  "version": "1.0.0",
+  "description": "Develop node modules in ES6 using babel",
   "files": [
     "app",
     "router"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "node",
+    "module",
+    "modules",
+    "es6",
+    "babel",
+    "mocha"
   ],
   "dependencies": {
     "underscore.string": "^3.2.2",
     "yeoman-generator": "^0.20.2"
   },
   "author": "Soham Kamani <sohamkamani@gmail.com> (http://sohamkamani.com)",
-  "license": "ISC"
+  "license": "MIT"
 }
