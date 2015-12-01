@@ -19,10 +19,6 @@ module.exports = generators.Base.extend({
       message: 'What is your GitHub username?',
       store: true,
     }, {
-      name: 'website',
-      message: 'What is the URL of your website?',
-      store: true
-    }, {
       type: 'checkbox',
       name: 'features',
       message: 'What more would you like?',
@@ -33,11 +29,11 @@ module.exports = generators.Base.extend({
       }, {
         name: 'request',
         value: 'request',
-        checked: true
+        checked: false
       }, {
         name: 'async',
         value: 'async',
-        checked: true
+        checked: false
       }]
     }], function (props) {
       console.log('PROPS', props);

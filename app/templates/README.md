@@ -1,4 +1,4 @@
-# <%= moduleName %> [![Build Status](https://travis-ci.org/<%= info.githubUsername %>/<%= info.moduleName %>.svg?branch=master)](https://travis-ci.org/<%= info.githubUsername %>/<%= info.moduleName %>)
+# <%= info.moduleName %> [![Build Status](https://travis-ci.org/<%= info.githubUsername %>/<%= info.moduleName %>.svg?branch=master)](https://travis-ci.org/<%= info.githubUsername %>/<%= info.moduleName %>)
 
 > My node module
 
@@ -11,4 +11,4 @@ $ npm install --save <%= info.moduleName %>
 
 ## License
 
-MIT © [<%= name %>](https://github.com/<%= info.githubUsername %>)
+MIT © [<%= info.name %>](https://github.com/<%= info.githubUsername %>)
