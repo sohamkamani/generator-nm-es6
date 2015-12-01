@@ -52,3 +52,7 @@ This is the actual folder the node module is run from once it is packaged and pu
 - Run `gulp build`
 - Commit and push your code.
 - Follow the instructions [here](https://gist.github.com/coolaj86/1318304)
+
+## License
+
+MIT © [sohamkamani](https://github.com/sohamkamani)

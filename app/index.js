@@ -60,6 +60,7 @@ module.exports = generators.Base.extend({
     mv('travis.yml', '.travis.yml');
     mv('gitignore', '.gitignore');
     mv('jshintrc','.jshintrc');
+    mv('_package.json','package.json');
   },
   gitInit: function () {
     this.spawnCommandSync('git', ['init']);
