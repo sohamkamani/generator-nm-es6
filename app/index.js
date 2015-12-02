@@ -36,7 +36,6 @@ module.exports = generators.Base.extend({
         checked: false
       }]
     }], function (props) {
-      console.log('PROPS', props);
       self.formProps = props;
       cb();
     });
