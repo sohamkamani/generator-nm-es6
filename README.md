@@ -3,6 +3,7 @@ Yeoman generator for developing your own node modules in ES6.
 - Uses [mocha](https://mochajs.org/) to run tests.
 - Uses [gulp](http://gulpjs.com/) for workflow automation.
 - Source maps built in.
+- Ready baked support for [TravisCI](https://travis-ci.org/) and [coveralls](https://coveralls.io/).
 
 ## Installation and usage
 
