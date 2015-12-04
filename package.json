@@ -5,7 +5,7 @@
     "test": "mocha test.js"
   },
   "repository" : "sohamkamani/generator-nm-es6",
-  "version": "1.0.0",
+  "version": "1.4.0",
   "description": "Develop node modules in ES6 using babel",
   "files": [
     "app",
