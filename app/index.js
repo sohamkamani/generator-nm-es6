@@ -18,6 +18,16 @@ module.exports = generators.Base.extend({
       name: 'githubUsername',
       message: 'What is your GitHub username?',
       store: true,
+    },{
+      name: 'includeTravis',
+      message: 'Include TravisCI?',
+      type : 'confirm',
+      default : true
+    },{
+      name: 'includeCoveralls',
+      message: 'Include coveralls.io integration?',
+      type : 'confirm',
+      default : true
     }, {
       type: 'checkbox',
       name: 'features',
@@ -49,6 +59,8 @@ module.exports = generators.Base.extend({
       self.templatePath('**/*'),
       self.destinationPath('.'), {
         info: {
+          travis : self.formProps.includeTravis,
+          coveralls : self.formProps.includeCoveralls,
           githubUsername: self.formProps.githubUsername,
           moduleName: self.formProps.moduleName,
           name: self.user.git.name(),
@@ -60,6 +72,9 @@ module.exports = generators.Base.extend({
     mv('gitignore', '.gitignore');
     mv('jshintrc','.jshintrc');
     mv('_package.json','package.json');
+    if(!self.formProps.includeTravis){
+      self.fs.delete(self.destinationPath('.travis.yml'));
+    }
   },
   gitInit: function () {
     this.spawnCommandSync('git', ['init']);

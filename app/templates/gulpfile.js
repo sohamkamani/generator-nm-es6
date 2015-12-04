@@ -29,7 +29,7 @@ var files = {
   entryPoint: dirs.sourceBuild + '/index.js'
 };
 
-var _build = function (src, dest) {
+var _build = function (src, dest, srcRoot) {
   return function () {
     return gulp.src(src)
       .pipe(jshint())
@@ -40,7 +40,7 @@ var _build = function (src, dest) {
       }))
       .pipe(sourcemaps.write('.', // (C)
         {
-          sourceRoot: dirs.sourceRoot
+          sourceRoot: srcRoot
         }))
       .pipe(gulp.dest(dest));
   };
@@ -63,8 +63,8 @@ var _clean = function (dir) {
 };
 
 //Test tasks
-gulp.task('source:build', _build(files.source, dirs.sourceBuild));
-gulp.task('test:build', _build(files.test, dirs.testBuild));
+gulp.task('source:build', _build(files.source, dirs.sourceBuild, dirs.sourceRoot));
+gulp.task('test:build', _build(files.test, dirs.testBuild, dirs.testRoot));
 gulp.task('build:all', ['source:build', 'test:build']);
 
 
@@ -98,6 +98,7 @@ gulp.task('remap-istanbul', ['test:mocha'], function (cb) {
   });
 });
 
+<% if(info.coveralls){ %>
 gulp.task('coveralls', ['test-with-reports'], function () {
   if (!process.env.CI) {
     return;
@@ -106,6 +107,7 @@ gulp.task('coveralls', ['test-with-reports'], function () {
   return gulp.src(path.join(__dirname, 'coverage/lcov.info'))
     .pipe(coveralls());
 });
+<%}%>
 
 gulp.task('test-with-reports', ['pre-test', 'test:mocha', 'remap-istanbul']);
 gulp.task('test:all', ['build:all'], _test);
@@ -130,5 +132,5 @@ gulp.task('test', ['clean:all'], function () {
 });
 
 gulp.task('default', ['clean:all'], function () {
-  return gulp.start.apply(this, ['test-with-reports', 'coveralls']);
+  return gulp.start.apply(this, ['test-with-reports'<% if(info.coveralls){ %>, 'coveralls'<%}%>]);
 });
