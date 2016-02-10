@@ -69,6 +69,8 @@ module.exports = generators.Base.extend({
       }
     );
     mv('travis.yml', '.travis.yml');
+    mv('npmignore', '.npmignore');
+    mv('tern-project', '.tern-project');
     mv('gitignore', '.gitignore');
     mv('jshintrc','.jshintrc');
     mv('_package.json','package.json');
