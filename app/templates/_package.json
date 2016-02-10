@@ -1,7 +1,7 @@
 {
   "name": "<%= info.moduleName %>",
   "version": "1.0.0",
-  "description": "An enhanced `cat` command for the terminal.",
+  "description": "My node module",
   "main": "dist/index.js",
   "scripts": {
     "test": "parallelshell 'npm run mocha' 'npm run watch:jshint'",
