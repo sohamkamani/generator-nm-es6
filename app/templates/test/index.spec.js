@@ -1,9 +1,10 @@
 'use strict';
 import {expect} from 'chai';
-import hello from '../source';
+import myModule from '../source/';
 
-describe('Hello World', ()=>{
-  it('Outputs hello world', ()=>{
-    expect(hello('world')).to.equal('Hello world!');
+
+describe('My module', function(){
+  it('Says hello world', () => {
+    expect(myModule()).to.equal('Hello World!');
   });
 });

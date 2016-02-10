@@ -1,2 +1,3 @@
 'use strict';
-module.exports = (word) => `Hello ${word}!`;
+
+module.exports = () => 'Hello World!';
